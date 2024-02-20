@@ -7,6 +7,7 @@
     <title>엽떡 리뷰 분석</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link href="{{ url_for('static', filename='css/purgobio.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -15,32 +16,16 @@
 
     <!-- Bootstrap Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">주요 키워드</h5>
+                    <h5 class="modal-title" id="imageModalLabel">매장별 리뷰 분석</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body" id="modalBody">
                     <!-- 모달 내용이 여기에 들어갑니다. -->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-6">-->
-<!--                            <img src="" id="modalImage1" class="img-fluid" alt="Image 1">-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6">-->
-<!--                            <img src="" id="modalImage2" class="img-fluid" alt="Image 2">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row mt-3">-->
-<!--                        <div class="col-md-6">-->
-<!--                            <p id="modalDescription1">이미지 1에 대한 설명이 여기에 들어갑니다.</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6">-->
-<!--                            <p id="modalDescription2">이미지 2에 대한 설명이 여기에 들어갑니다.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -70,7 +55,14 @@
         // 마커 클릭 시 모달 띄우기
         marker1.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 강남구청역점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 강남구청역점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 강남구청역점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -83,7 +75,14 @@
         // 마커 클릭 시 모달 띄우기
         marker2.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 개포동역점.jpg" alt="Image 1">';
+            modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 개포동역점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 개포동역점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -96,7 +95,14 @@
         // 마커 클릭 시 모달 띄우기
         marker3.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 대치점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 대치점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 대치점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -109,7 +115,14 @@
         // 마커 클릭 시 모달 띄우기
         marker4.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 압구정직영점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 압구정직영점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 압구정직영점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -122,7 +135,14 @@
         // 마커 클릭 시 모달 띄우기
         marker5.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 수서점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 수서점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 수서점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -135,7 +155,14 @@
         // 마커 클릭 시 모달 띄우기
         marker6.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 양재점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 양재점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 양재점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -148,7 +175,14 @@
         // 마커 클릭 시 모달 띄우기
         marker7.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 역삼점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 역삼점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 역삼점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -161,7 +195,14 @@
         // 마커 클릭 시 모달 띄우기
         marker8.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 청담점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 청담점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 청담점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -175,7 +216,14 @@
         // 마커 클릭 시 모달 띄우기 (예시 마커 1)
         marker9.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 강남역점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 강남역점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 강남역점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -188,7 +236,14 @@
         // 마커 클릭 시 모달 띄우기
         marker10.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 개포점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 개포점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 개포점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -201,10 +256,16 @@
         // 마커 클릭 시 모달 띄우기
         marker11.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 교대점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 교대점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 교대점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
 
-             $('#imageModal').modal('show'); // 모달 띄우기
         });
 
         // 구반포점
@@ -216,7 +277,14 @@
         // 마커 클릭 시 모달 띄우기
         marker12.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 구반포점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 구반포점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 구반포점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -229,7 +297,14 @@
         // 마커 클릭 시 모달 띄우기
         marker13.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 반포점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 반포점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 반포점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -242,7 +317,14 @@
         // 마커 클릭 시 모달 띄우기
         marker14.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 방배점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 방배점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 방배점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -255,7 +337,14 @@
         // 마커 클릭 시 모달 띄우기
         marker15.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 신반포점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 신반포점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 신반포점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -268,7 +357,14 @@
         // 마커 클릭 시 모달 띄우기
         marker16.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 신사역점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 신사역점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 신사역점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -281,7 +377,14 @@
         // 마커 클릭 시 모달 띄우기
         marker17.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 양재우면점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 양재우면점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 양재우면점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -294,7 +397,14 @@
         // 마커 클릭 시 모달 띄우기
         marker18.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 가락점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 가락점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 가락점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -307,7 +417,14 @@
         // 마커 클릭 시 모달 띄우기
         marker19.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 거여점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 거여점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 거여점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -320,7 +437,14 @@
         // 마커 클릭 시 모달 띄우기
         marker20.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 문정점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 문정점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 문정점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -333,7 +457,14 @@
         // 마커 클릭 시 모달 띄우기
         marker21.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 방이점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 방이점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 방이점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -346,7 +477,14 @@
         // 마커 클릭 시 모달 띄우기
         marker22.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 송파점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 송파점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 송파점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -359,7 +497,14 @@
         // 마커 클릭 시 모달 띄우기
         marker23.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 신천점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 신천점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 신천점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -372,7 +517,14 @@
         // 마커 클릭 시 모달 띄우기
         marker24.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 오금점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 오금점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 오금점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -385,7 +537,14 @@
         // 마커 클릭 시 모달 띄우기
         marker25.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 위례신도시점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/동대문엽기떡볶이 위례신도시점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/동대문엽기떡볶이 위례신도시점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -398,7 +557,14 @@
         // 마커 클릭 시 모달 띄우기
         marker26.on('click', function () {
             var modalBody = document.getElementById('modalBody');
-             modalBody.innerHTML = '<img src="/static/keywords/불닭발땡초동대문엽기떡볶이 잠실역점.jpg" alt="Image 1">';
+             modalBody.innerHTML = '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/keywords/불닭발땡초동대문엽기떡볶이 잠실역점.jpg" class="img-fluid" alt="Image 1">' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                          '<img src="/static/piechart/불닭발땡초동대문엽기떡볶이 잠실역점.jpg" class="img-fluid" alt="Image 2">' +
+                                      '</div>' +
+                                  '</div>';
              $('#imageModal').modal('show'); // 모달 띄우기
         });
 
@@ -408,9 +574,9 @@
         }).addTo(map);
 
         var buttonContainer = document.createElement('div');
-        buttonContainer.innerHTML = '<button class="btn btn-primary mr-2" id="btn1">강남구</button>' +
-                                    '<button class="btn btn-secondary mr-2" id="btn2">서초구</button>' +
-                                    '<button class="btn btn-success" id="btn3">송파구</button>';
+        buttonContainer.innerHTML = '<button class="custom-btn mr-2" id="btn1">강남구</button>' +
+                                    '<button class="custom-btn mr-2" id="btn2">서초구</button>' +
+                                    '<button class="custom-btn" id="btn3">송파구</button>';
 
         // 지도에 버튼 추가
         buttonContainer.style.position = 'absolute';
@@ -450,14 +616,20 @@
                                 '                <span aria-hidden="true">&times;</span>' +
                                 '            </button>' +
                                 '        </div>' +
-                                '        <div class="modal-body">' +
-                                '            <img src="' + imageSrc + '" alt="Image" style="max-width: 100%; max-height: 400px;">' +
-                                '            <p>' + modalContent + '</p>' +
+                                '        <div class="modal-body text-center">' +
+                                '            <img src="' + imageSrc + '" alt="Image" id="modalImage" style="width: 100%;">' +
+                                '            <p style="text-align: center;">' + modalContent + '</p>' +
                                 '        </div>' +
                                 '    </div>' +
                                 '</div>';
 
             document.body.appendChild(newModal);  // 모달을 body에 추가
+            // 모달이 열릴 때 이미지 크기 동적 조절
+            $('#guModal').on('shown.bs.modal', function () {
+                var modalImage = document.getElementById('modalImage');
+                modalImage.style.maxHeight = (window.innerHeight * 0.7) + 'px';  // 최대 높이를 창의 70%로 조절
+            });
+
             $(newModal).modal('show');  // 모달 열기
 
             // 모달이 닫힐 때 body에서 제거
