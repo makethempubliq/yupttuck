@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엽떡 리뷰 분석</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+    <!-- Folium 지도를 표시하는 부분 -->
+    <div id="map" style="height: 100vh;"></div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">주요 키워드</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- 모달 내용이 여기에 들어갑니다. -->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <img src="" id="modalImage1" class="img-fluid" alt="Image 1">-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6">-->
+<!--                            <img src="" id="modalImage2" class="img-fluid" alt="Image 2">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row mt-3">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <p id="modalDescription1">이미지 1에 대한 설명이 여기에 들어갑니다.</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6">-->
+<!--                            <p id="modalDescription2">이미지 2에 대한 설명이 여기에 들어갑니다.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 및 Folium 설정 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/folium@0.11.0/folium.js"></script>
+
+    <script>
+        var customIcon = L.icon({
+            iconUrl: 'static/marker.png', // 사용자 정의 이미지 파일 경로
+            iconSize: [40, 40],  // 이미지의 크기
+        });
+        //양식 : 동대문엽기떡볶이 ##점
+        // Folium 지도 초기화
+        var map = L.map('map').setView([37.49154286721196, 127.07307026789388], 13);
+
+        // 강남구청역점
+        var marker1 = L.marker([37.5179805407655, 127.037375686768], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 강남구청역점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker1.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 강남구청역점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 개포동역점
+        var marker2 = L.marker([37.4891364492082, 127.064630783624], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 개포동역점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker2.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 개포동역점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 대치점
+        var marker3 = L.marker([37.5005402893169, 127.048706052198], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 대치점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker3.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 대치점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 압구정 직영점
+        var marker4 = L.marker([37.52413216374542, 127.02805929241654], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 압구정직영점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker4.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 압구정직영점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 수서점
+        var marker5 = L.marker([37.4891611889105, 127.098055908046], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 수서점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker5.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 수서점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 양재점
+        var marker6 = L.marker([37.4856977349266, 127.03404601895], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 양재점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker6.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 양재점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 역삼점
+        var marker7 = L.marker([37.4967535118315, 127.042178937219], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 역삼점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker7.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 역삼점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 청담점
+        var marker8 = L.marker([37.4967535118315, 127.047313919624], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 청담점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker8.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 청담점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+
+        // 강남역점
+        var marker9 = L.marker([37.498835505575066, 127.0225114481677], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 강남역점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기 (예시 마커 1)
+        marker9.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 강남역점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 개포점
+        var marker10 = L.marker([37.4756525966144, 127.041669553637], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 개포점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker10.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 개포점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 교대점
+        var marker11 = L.marker([37.488519190940714, 127.01431495461371], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 교대점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker11.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 교대점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 구반포점
+        var marker12 = L.marker([37.4977393345421, 126.982751593017], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 구반포점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker12.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 구반포점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 반포점
+        var marker13 = L.marker([37.5104157036674, 127.017723783875], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 반포점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker13.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 반포점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 방배점
+        var marker14 = L.marker([37.4839728388248, 126.992430275648], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 방배점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker14.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 방배점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 신반포점
+        var marker15 = L.marker([37.5087877440163, 127.000683627607], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 신반포점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker15.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 신반포점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 신사역점
+        var marker16 = L.marker([37.51586246517521, 127.0176366652137], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 신사역점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker16.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 신사역점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 양재우면점
+        var marker17 = L.marker([37.4633539125539, 127.031725779592], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 양재우면점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker17.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 양재우면점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 가락점
+        var marker18 = L.marker([37.4982413279163, 127.115613467971], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 가락점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker18.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 가락점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 거여점
+        var marker19 = L.marker([37.4926109446136, 127.141597743259], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 거여점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker19.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 거여점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 문정점
+        var marker20 = L.marker([37.4807635138469, 127.118358221646], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 문정점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker20.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 문정점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 방이점
+        var marker21 = L.marker([37.51130695260524, 127.11063188658919], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 방이점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker21.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 방이점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 송파점
+        var marker22 = L.marker([37.503482406402, 127.092358934918], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 송파점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker22.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 송파점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 신천점
+        var marker23 = L.marker([37.5105430966584, 127.079328773303], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 신천점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker23.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 신천점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 오금점
+        var marker24 = L.marker([37.5101616295828, 127.124767211071], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 오금점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker24.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 오금점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 위례신도시점
+        var marker25 = L.marker([37.4763732971405, 127.140451628288], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('동대문엽기떡볶이 위례신도시점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker25.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/동대문엽기떡볶이 위례신도시점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 잠실역점
+        var marker26 = L.marker([37.5188849479135, 127.096390485153], {icon: customIcon})
+                                .addTo(map)
+                                .bindTooltip('불닭발땡초동대문엽기떡볶이 잠실역점'); // Popup에 이름 추가;
+
+
+        // 마커 클릭 시 모달 띄우기
+        marker26.on('click', function () {
+            var modalBody = document.getElementById('modalBody');
+             modalBody.innerHTML = '<img src="/static/keywords/불닭발땡초동대문엽기떡볶이 잠실역점.jpg" alt="Image 1">';
+             $('#imageModal').modal('show'); // 모달 띄우기
+        });
+
+        // 지도 타일 레이어 추가
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+    </script>
+
+</body>
+</html>
