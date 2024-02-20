@@ -407,6 +407,64 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
+        var buttonContainer = document.createElement('div');
+        buttonContainer.innerHTML = '<button class="btn btn-primary mr-2" id="btn1">강남구</button>' +
+                                    '<button class="btn btn-secondary mr-2" id="btn2">서초구</button>' +
+                                    '<button class="btn btn-success" id="btn3">송파구</button>';
+
+        // 지도에 버튼 추가
+        buttonContainer.style.position = 'absolute';
+        buttonContainer.style.bottom = '10px';
+        buttonContainer.style.right = '10px';
+        buttonContainer.style.zIndex = 1000;
+        map.getContainer().appendChild(buttonContainer);
+
+        document.getElementById('btn1').addEventListener('click', function () {
+            openModal('/static/wc_강남구.jpg', '강남구');
+        });
+
+        document.getElementById('btn2').addEventListener('click', function () {
+            openModal('/static/wc_서초구.jpg', '서초구');
+        });
+
+        document.getElementById('btn3').addEventListener('click', function () {
+            openModal('/static/wc_송파구.jpg', '송파구');
+        });
+
+        function openModal(imageSrc, modalContent) {
+            // 새로운 모달 엘리먼트 생성
+            var newModal = document.createElement('div');
+            newModal.className = 'modal fade';
+            newModal.id = 'guModal';  // 모달의 ID는 고유해야 합니다.
+            newModal.setAttribute('tabindex', '-1');
+            newModal.setAttribute('role', 'dialog');
+            newModal.setAttribute('aria-labelledby', 'exampleModalLabel');
+            newModal.setAttribute('aria-hidden', 'true');
+
+            // 모달 내용 설정
+            newModal.innerHTML = '<div class="modal-dialog" role="document">' +
+                                '    <div class="modal-content">' +
+                                '        <div class="modal-header">' +
+                                '            <h5 class="modal-title" id="exampleModalLabel">주요 키워드 워드 클라우드</h5>' +
+                                '            <button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+                                '                <span aria-hidden="true">&times;</span>' +
+                                '            </button>' +
+                                '        </div>' +
+                                '        <div class="modal-body">' +
+                                '            <img src="' + imageSrc + '" alt="Image" style="max-width: 100%; max-height: 400px;">' +
+                                '            <p>' + modalContent + '</p>' +
+                                '        </div>' +
+                                '    </div>' +
+                                '</div>';
+
+            document.body.appendChild(newModal);  // 모달을 body에 추가
+            $(newModal).modal('show');  // 모달 열기
+
+            // 모달이 닫힐 때 body에서 제거
+            $(newModal).on('hidden.bs.modal', function () {
+                document.body.removeChild(newModal);
+            });
+        }
     </script>
 
 </body>
